@@ -21,35 +21,7 @@
 </head>
 <body>
 	<div class="container">
-		<c:choose>
-			<c:when test="${! empty film}">
-				<table class="table table-bordered border-info">
-					<thead>
-						<tr>
-							<th scope="col">Film Title</th>
-							<th scope="col">Film Description</th>
-							<th scope="col">Film Language</th>
-							<th scope="col">Film Rating</th>
-							<th scope="col">Film Release Year</th>
-							<th scope="col">Remove Film</th>
-						</tr>
-					</thead>
-					<tbody class="table-group-divider">
-						<tr>
-							<td>${film.title}</td>
-							<td>${film.desc}</td>
-							<td>${film.lang}</td>
-							<td>${film.rating}</td>
-							<td>${film.relYear}</td>
-							<td><a href="RemoveForm.html">Remove Film</a></td>
-						</tr>
-					</tbody>
-				</table>
-			</c:when>
-			<c:otherwise>
-				<p>No Films Found</p>
-			</c:otherwise>
-		</c:choose>
+	
 	</div>
 </body>
 </html>

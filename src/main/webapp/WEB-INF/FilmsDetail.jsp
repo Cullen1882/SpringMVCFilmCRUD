@@ -33,6 +33,8 @@
 								<th scope="col">Film Language</th>
 								<th scope="col">Film Rating</th>
 								<th scope="col">Film Release Year</th>
+								<th scope="col">Remove Film</th>
+								
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">
@@ -42,6 +44,7 @@
 								<td>${film.lang}</td>
 								<td>${film.rating}</td>
 								<td>${film.relYear}</td>
+								<td><a href="RemoveForm.html">Remove Film</a></td>
 							</tr>
 						</tbody>
 					</table>
