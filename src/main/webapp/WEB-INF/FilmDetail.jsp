@@ -41,7 +41,7 @@
 							<td>${film.lang}</td>
 							<td>${film.rating}</td>
 							<td>${film.relYear}</td>
-							<td><a href="RemoveForm.html">Remove Film</a></td>
+							<td><a href="RemoveFilm.html">Remove Film</a></td>
 						</tr>
 					</tbody>
 				</table>
