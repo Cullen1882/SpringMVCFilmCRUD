@@ -73,11 +73,8 @@ public class Actor {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Actor: ").append(firstName).append(" ").append(lastName).append(" Actor ID: ")
-				.append(aId).append("\n").append("Other Films with this Actor: ");
-		for (Film film : disco) {
-			builder.append("\n" + film.getTitle());
-		}
+		builder.append("\n").append("Actor: ").append(firstName).append(" ").append(lastName).append(" Actor ID: ")
+				.append(aId).append("\n");
 		return builder.toString();
 	}
 

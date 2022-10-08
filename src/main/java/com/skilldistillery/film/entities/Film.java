@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Film {
-	private int fId;
+	private int filmId;
 	private String title;
 	private String desc;
 	private int relYear;
@@ -34,11 +34,11 @@ public class Film {
 //	}
 
 	public int getId() {
-		return fId;
+		return filmId;
 	}
 
 	public void setId(int id) {
-		this.fId = id;
+		this.filmId = id;
 	}
 
 	public String getTitle() {
@@ -139,7 +139,7 @@ public class Film {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cast, desc, fId, lang, langId, length, rating, relYear, rentDur, rentRate, repCost,
+		return Objects.hash(cast, desc, filmId, lang, langId, length, rating, relYear, rentDur, rentRate, repCost,
 				specFeat, title);
 	}
 
@@ -152,7 +152,7 @@ public class Film {
 		if (getClass() != obj.getClass())
 			return false;
 		Film other = (Film) obj;
-		return Objects.equals(cast, other.cast) && Objects.equals(desc, other.desc) && fId == other.fId
+		return Objects.equals(cast, other.cast) && Objects.equals(desc, other.desc) && filmId == other.filmId
 				&& Objects.equals(lang, other.lang) && langId == other.langId && length == other.length
 				&& Objects.equals(rating, other.rating) && relYear == other.relYear && rentDur == other.rentDur
 				&& Double.doubleToLongBits(rentRate) == Double.doubleToLongBits(other.rentRate)
@@ -166,7 +166,7 @@ public class Film {
 		builder.append("Film Title: ").append(title).append("\n").append("Description: ").append(desc).append("\n").append("Year Released: ").append(relYear)
 				.append("\n").append("Language: ").append(lang).append("\n").append("Rating: ").append(rating).append("\n").append("Cast: \n");
 		for (Actor actor : cast) {
-			builder.append(actor.getFirstName()).append(" ").append(actor.getLastName()).append("\n");
+			builder.append("\n").append(actor.getFirstName()).append(" ").append(actor.getLastName()).append("\n");
 			
 			
 		}

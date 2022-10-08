@@ -9,9 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
-
+@Component
 public class FilmDaoJdbcImpl implements FilmDAO {
 	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
 	private static final String user = "student";
@@ -199,6 +201,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 	public Film createFilm(Film film) {
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
+			conn.setAutoCommit(false);
 			String sql = "INSERT INTO film " + " (title, description, release_year, rating, length, language_id) "
 			// TODO: Add the rest of the film properties
 					+ "VALUES (?, ?, ?, ?, ?, ?)";
@@ -218,6 +221,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 				}
 				rs.close();
 			}
+			conn.commit();
 			stmt.close();
 			conn.close();
 		} catch (SQLException sqle) {
@@ -228,7 +232,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 	}
 
 	@Override
-	public boolean deleteFilm(Film film) {
+	public boolean deleteFilm(int filmId) {
 			boolean deleted = false;
 			try {
 				Connection conn = DriverManager.getConnection(URL, user, pass);
@@ -245,7 +249,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 				sqle.printStackTrace();
 			}
 			return deleted;
-		return false;
+		
 	}
 
 	
