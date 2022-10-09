@@ -33,6 +33,7 @@
 								<th scope="col">Film Language</th>
 								<th scope="col">Film Rating</th>
 								<th scope="col">Film Release Year</th>
+								<th scope="col">Update Film</th>
 								<th scope="col">Remove Film</th>
 								
 							</tr>
@@ -44,6 +45,11 @@
 								<td>${film.lang}</td>
 								<td>${film.rating}</td>
 								<td>${film.relYear}</td>
+							<td><form action="updateFilmDetails.do" action="POST">
+									<input type="hidden" name="filmId" value="${film.id}" />
+									<input type="submit" value="Update Film"
+										class="btn btn-primary" />
+								</form></td>
 								<td><a href="RemoveForm.html">Remove Film</a></td>
 							</tr>
 						</tbody>

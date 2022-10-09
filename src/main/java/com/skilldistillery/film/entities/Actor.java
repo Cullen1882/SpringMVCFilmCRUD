@@ -73,7 +73,7 @@ public class Actor {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("\n").append("Actor: ").append(firstName).append(" ").append(lastName).append(" Actor ID: ")
+		builder.append(firstName).append(" ").append(lastName).append(" Actor ID: ")
 				.append(aId).append("\n");
 		return builder.toString();
 	}

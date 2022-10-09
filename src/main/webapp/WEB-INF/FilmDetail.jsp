@@ -33,7 +33,9 @@
 							<th scope="col">Film Language</th>
 							<th scope="col">Update Film</th>
 							<th scope="col">Remove Film</th>
+							
 						</tr>
+						
 					</thead>
 					<tbody class="table-group-divider">
 						<tr>
@@ -42,9 +44,18 @@
 							<td>${film.relYear}</td>
 							<td>${film.rating}</td>
 							<td>${film.langId}</td>
-							<td><a href="updateFilm.do?filmId=${film.filmId}">Update Film</a></td>
+							<td><form action="updateFilmDetails.do" action="POST">
+									<input type="hidden" name="filmId" value="${film.id}" />
+									<input type="submit" value="Update Film"
+										class="btn btn-primary" />
+								</form></td>
 							<td><a href="RemoveForm.html">Remove Film</a></td>
 						</tr>
+						<tr>
+						<th scope="row"> Cast </th>
+						<td colspan="6"> ${film.cast }</td>
+						</tr>
+						
 					</tbody>
 				</table>
 			</c:when>

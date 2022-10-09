@@ -25,17 +25,19 @@
 	<h3>Film</h3>
   <form action="updateFilm.do" method="POST">
   
+    <label for="filmId">Film ID </label>
+    <input name="filmId" value="${updateFilm.id}" type="hidden"/>
     
     <label for="title">Title:</label> 
-    <input type="text" name="title" value="${updateFilm.title}"/> 
+    <input type="text" name="title" value="${updateFilm.title}"/> <br>
    <label for="desc">Description:</label> 
-    <input type="text" name="desc"/> 
+    <input type="text" name="desc"  value="${updateFilm.desc}"/> <br>
     <label for="langId">Language:</label>
-    <input type="text" name="langId"/> 
+    <input type="text" name="langId"  value="${updateFilm.langId}"/> <br>
     <label for="rating">Rating:</label>
-    <input type="text" name="rating"/> 
+    <input type="text" name="rating"  value="${updateFilm.rating}"/> <br>
    <label for="relYear">Release Year:</label>
-    <input type="text" name="relYear"/>  
+    <input type="text" name="relYear"  value="${updateFilm.relYear}"/>  <br>
     
     <input type="submit" value="Update Film" />
   </form>

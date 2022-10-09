@@ -75,12 +75,20 @@ public class FilmController {
 		return mv;
 	}
 	
+	@RequestMapping(path="updateFilmDetails.do", method = RequestMethod.GET)
+	public ModelAndView updateFilmDetails(int filmId) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("updateFilm", dao.findFilmById(filmId));
+		mv.setViewName("UpdateForm");
+		return mv;
+	}
+	
 	@RequestMapping(path="updateFilm.do", method = RequestMethod.POST)
 	public ModelAndView updateFilm(int filmId, Film film, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
-		film = dao.findFilmById(filmId);
-		film = dao.updateFilm(filmId, film);
-		redir.addFlashAttribute("updateFilm", film);
+		
+		film = dao.updateFilm(film, filmId);
+		redir.addFlashAttribute("film", film);
 		mv.setViewName("redirect:filmUpdated.do");
 		return mv;
 	}
