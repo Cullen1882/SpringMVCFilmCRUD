@@ -42,7 +42,7 @@
 							<td>${film.relYear}</td>
 							<td>${film.rating}</td>
 							<td>${film.langId}</td>
-							<td><a href="UpdateForm.html">Update Film</a></td>
+							<td><a href="updateFilm.do?filmId=${film.filmId}">Update Film</a></td>
 							<td><a href="RemoveForm.html">Remove Film</a></td>
 						</tr>
 					</tbody>

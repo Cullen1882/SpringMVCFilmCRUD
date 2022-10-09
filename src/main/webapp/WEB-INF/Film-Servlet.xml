@@ -20,6 +20,6 @@
 		<property name="prefix" value="/WEB-INF/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	<bean 
-		id="dao" class="com.skilldistillery.film.data.FilmDaoJdbcImpl"/> 
+	<!-- <bean 
+		id="dao" class="com.skilldistillery.film.data.FilmDaoJdbcImpl"/>  -->
 </beans>

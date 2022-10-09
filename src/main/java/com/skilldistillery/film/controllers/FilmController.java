@@ -88,7 +88,7 @@ public class FilmController {
 	@RequestMapping(path = "filmUpdated.do", method = RequestMethod.GET)
 	public ModelAndView filmUpdated() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("FilmUpdated");
+		mv.setViewName("FilmDetail");
 		return mv;
 	}
 
