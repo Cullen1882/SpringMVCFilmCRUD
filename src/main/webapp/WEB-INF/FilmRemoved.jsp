@@ -21,14 +21,13 @@
 </head>
 <body>
 	<div class="container">
+	
 	<c:choose>
-    <c:when test="${! empty rmvFilm}">
-      <ul>
-        <li>${rmvFilm.title}</li>
-      </ul>
+    <c:when test="${removeFilm}">
+      Film has been successfully been removed!
     </c:when>
     <c:otherwise>
-      <p>No state found</p>
+      <p>Sorry, Could not remove that Film!</p>
     </c:otherwise>
   </c:choose>
 	

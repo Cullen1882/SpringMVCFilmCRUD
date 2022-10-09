@@ -74,6 +74,7 @@ public class Film {
 	}
 	
 	public String getLang() {
+		
 		return lang;
 	}
 
@@ -164,7 +165,7 @@ public class Film {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Film Title: ").append(title).append("\n").append("Description: ").append(desc).append("\n").append("Year Released: ").append(relYear)
-				.append("\n").append("Language: ").append(lang).append("\n").append("Rating: ").append(rating).append("\n").append("Cast: \n");
+				.append("\n").append("Language: ").append(langId).append("\n").append("Rating: ").append(rating).append("\n").append("Cast: \n");
 		for (Actor actor : cast) {
 			builder.append("\n").append(actor.getFirstName()).append(" ").append(actor.getLastName()).append("\n");
 			

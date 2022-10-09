@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
+
 @Component
 public class FilmDaoJdbcImpl implements FilmDAO {
 	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=US/Mountain";
@@ -202,16 +203,13 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false);
-			String sql = "INSERT INTO film " + " (title, description, release_year, rating, length, language_id) "
-			// TODO: Add the rest of the film properties
-					+ "VALUES (?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO film (title, description, release_year, rating, language_id) VALUES (?, ?, ?, ?, ?)";
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, film.getTitle());
 			stmt.setString(2, film.getDesc());
 			stmt.setInt(3, film.getRelYear());
 			stmt.setString(4, film.getRating());
-			stmt.setInt(5, film.getLength());
-			stmt.setInt(6, film.getLangId());
+			stmt.setInt(5, film.getLangId());
 
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
@@ -224,6 +222,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			conn.commit();
 			stmt.close();
 			conn.close();
+
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
 			film = null;
@@ -233,32 +232,73 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 	@Override
 	public boolean deleteFilm(int filmId) {
-			boolean deleted = false;
-			try {
-				Connection conn = DriverManager.getConnection(URL, user, pass);
-				conn.setAutoCommit(false);
-				String sql = "DELETE FROM film WHERE id = ?";
-				PreparedStatement stmt = conn.prepareStatement(sql);
-				stmt.setInt(1, filmId);
-				int updateCount = stmt.executeUpdate();
-				if (updateCount == 1) {
-					deleted = true;
-				}
-				conn.commit();
-				stmt.close();
-				conn.close();
-			} catch (SQLException sqle) {
-				sqle.printStackTrace();
+		boolean deleted = false;
+		try {
+			Connection conn = DriverManager.getConnection(URL, user, pass);
+			conn.setAutoCommit(false);
+			String sql = "DELETE FROM film WHERE film.id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, filmId);
+			int updateCount = stmt.executeUpdate();
+			if (updateCount == 1) {
+				deleted = true;
 			}
-			return deleted;
-		
-	}
+			conn.commit();
+			stmt.close();
+			conn.close();
+		} catch (SQLException sqle) {
+			sqle.printStackTrace();
+		}
+		return deleted;
 
-	
+	}
 
 	@Override
 	public Film updateFilm(int filmId, Film film) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = null;
+
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+			conn.setAutoCommit(false);
+
+			String sql = "UPDATE film SET title=?, description=?, release_year=?, rating=?, language_id=? WHERE id =?";
+
+			PreparedStatement stmt = conn.prepareStatement(sql);
+
+			stmt.setString(1, film.getTitle());
+			stmt.setString(2, film.getDesc());
+			stmt.setInt(3, film.getRelYear());
+			stmt.setString(4, film.getRating());
+			stmt.setInt(5, film.getLangId());
+			stmt.setInt(6, film.getId());
+
+			int updateCount = stmt.executeUpdate();
+			if (updateCount == 1) {
+				sql = "DELETE FROM film WHERE film.id = ?";
+				stmt = conn.prepareStatement(sql);
+				stmt.setInt(1, film.getId());
+				updateCount = stmt.executeUpdate();
+
+				sql = "INSERT INTO film (title, description, release_year, rating, language_id) VALUES (?,?,?,?,?)";
+				stmt = conn.prepareStatement(sql);
+
+				stmt.setString(1, film.getTitle());
+				stmt.setString(2, film.getDesc());
+				stmt.setInt(3, film.getRelYear());
+				stmt.setString(4, film.getRating());
+				stmt.setInt(5, film.getLangId());
+
+				updateCount = stmt.executeUpdate();
+
+				conn.commit();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return film;
+
 	}
+
 }

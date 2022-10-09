@@ -21,37 +21,39 @@
 </head>
 <body>
 	<div class="container">
+
 		<c:choose>
-			<c:when test="${! empty film}">
+			<c:when test="${! empty updateFilm}">
 				<table class="table table-bordered border-info">
 					<thead>
 						<tr>
 							<th scope="col">Film Title</th>
 							<th scope="col">Film Description</th>
-							<th scope="col">Film Release Year</th>
-							<th scope="col">Film Rating</th>
 							<th scope="col">Film Language</th>
-							<th scope="col">Update Film</th>
-							<th scope="col">Remove Film</th>
+							<th scope="col">Film Rating</th>
+							<th scope="col">Film Release Year</th>
+
+
 						</tr>
 					</thead>
 					<tbody class="table-group-divider">
 						<tr>
-							<td>${film.title}</td>
-							<td>${film.desc}</td>
-							<td>${film.relYear}</td>
-							<td>${film.rating}</td>
-							<td>${film.langId}</td>
-							<td><a href="UpdateForm.html">Update Film</a></td>
-							<td><a href="RemoveForm.html">Remove Film</a></td>
+							<td>${updateFilm.title}</td>
+							<td>${updateFilm.desc}</td>
+							<td>${updateFilm.lang}</td>
+							<td>${updateFilm.rating}</td>
+							<td>${updateFilm.relYear}</td>
+
 						</tr>
 					</tbody>
 				</table>
 			</c:when>
 			<c:otherwise>
-				<p>No Films Found</p>
+				<p>Update Failed</p>
 			</c:otherwise>
 		</c:choose>
+
+
 	</div>
 </body>
 </html>
