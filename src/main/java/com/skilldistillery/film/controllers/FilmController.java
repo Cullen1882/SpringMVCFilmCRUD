@@ -24,6 +24,7 @@ public class FilmController {
 	@RequestMapping(path = "showFilm.do", method = RequestMethod.GET)
 	public ModelAndView showFilmById(@RequestParam("id") int filmId) {
 		ModelAndView mv = new ModelAndView();
+		
 		mv.addObject("film", dao.findFilmById(filmId));
 
 		mv.setViewName("FilmDetail");
@@ -41,9 +42,8 @@ public class FilmController {
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.POST)
 	public ModelAndView addFilm(Film film, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
-		dao.createFilm(film);
+		film = dao.createFilm(film);
 		redir.addFlashAttribute("film", film);
-		System.out.println(film);
 		
 		mv.setViewName("redirect:filmAdded.do");
 		
@@ -58,9 +58,17 @@ public class FilmController {
 		return mv;
 
 	}
+	
+	@RequestMapping(path="removeFilmDetails.do", method = RequestMethod.GET)
+	public ModelAndView removeFilmDetails(int filmId) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("removeFilm", dao.findFilmById(filmId));
+		mv.setViewName("RemoveForm");
+		return mv;
+	}
 
-	@RequestMapping(path = "removeFilm.do", method = RequestMethod.POST)
-	public ModelAndView removeFilm(@RequestParam("removeFilm") int filmId, RedirectAttributes redir) {
+	@RequestMapping(path = "removeFilm.do", method = RequestMethod.GET)
+	public ModelAndView removeFilm(int filmId, RedirectAttributes redir) {
 		ModelAndView mv = new ModelAndView();
 		boolean deleted = dao.deleteFilm(filmId);
 		redir.addFlashAttribute("removeFilm", deleted);

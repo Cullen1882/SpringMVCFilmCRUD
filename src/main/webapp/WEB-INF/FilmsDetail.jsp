@@ -20,9 +20,12 @@
 <title>Films</title>
 </head>
 <body>
-	<h1>Films With KeyWord: <c:out value="${keyword}"/></h1>
+	<h1>
+		Films With KeyWord:
+		<c:out value="${keyword}" />
+	</h1>
 	<div class="container">
-		<c:forEach var="film" items="${films}" >
+		<c:forEach var="film" items="${films}">
 			<c:choose>
 				<c:when test="${! empty films}">
 					<table class="table table-bordered border-info">
@@ -35,7 +38,7 @@
 								<th scope="col">Film Release Year</th>
 								<th scope="col">Update Film</th>
 								<th scope="col">Remove Film</th>
-								
+
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">
@@ -45,13 +48,24 @@
 								<td>${film.lang}</td>
 								<td>${film.rating}</td>
 								<td>${film.relYear}</td>
-							<td><form action="updateFilmDetails.do" action="POST">
-									<input type="hidden" name="filmId" value="${film.id}" />
-									<input type="submit" value="Update Film"
-										class="btn btn-primary" />
-								</form></td>
-								<td><a href="RemoveForm.html">Remove Film</a></td>
+								<td><form action="updateFilmDetails.do" action="POST">
+										<input type="hidden" name="filmId" value="${film.id}" /> <input
+											type="submit" value="Update Film" class="btn btn-primary" />
+									</form></td>
+								<td><form action="removeFilmDetails.do" action="POST">
+										<input type="hidden" name="filmId" value="${film.id}" /> <input
+											type="submit" value="Delete Film" class="btn btn-primary" />
+									</form></td>
 							</tr>
+							<tr>
+								<th scope="row">Cast</th>
+								<td colspan="6">${film.cast }</td>
+							</tr>
+							<tr>
+								<th scope="row">Category</th>
+								<td colspan="6">${film.category}</td>
+							</tr>
+
 						</tbody>
 					</table>
 				</c:when>

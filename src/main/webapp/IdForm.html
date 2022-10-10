@@ -2,14 +2,41 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+	crossorigin="anonymous"></script>
 <title>Film</title>
 </head>
 <body>
-  <h3>Film</h3>
-  <form action="showFilm.do" method="GET">
-    ID: 
-    <input type="text" name="id"/> 
-    <input type="submit" value="Get Film Data" />
-  </form>
+	<div class="container-fluid">
+		<div class="bg-image"
+			style="background-image: url('https://i.pinimg.com/originals/09/e8/51/09e8517a7695e1566e6b599b9e6a1e7a.jpg'); height: 100vh">
+			<nav class="navbar bg">
+				<div class="container-fluid">
+					<h1 class="container text-center">Please Enter the ID of the
+						Film</h1>
+				</div>
+			</nav>
+
+			<form action="showFilm.do" method="GET">
+				<div class="input-group mb-3">
+					<input type="number" name="id" class="form-control"
+						placeholder="ID of Film" required aria-label="ID"
+						aria-describedby="button-addon2">
+					<button class="btn btn-outline-secondary" type="submit"
+						id="button-addon2">Get Film Data</button>
+				</div>
+			</form>
+
+			<a href="index.html" >Home Page</a>
+		</div>
+	</div>
 </body>
 </html>

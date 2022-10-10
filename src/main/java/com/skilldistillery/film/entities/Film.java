@@ -18,6 +18,8 @@ public class Film {
 	private String rating;
 	private String specFeat;
 	private List<Actor> cast;
+	private int categoryId;
+	private String category;
 
 	public Film() {
 		cast = new ArrayList<>();
@@ -137,11 +139,28 @@ public class Film {
 	public void setCast(List<Actor> cast) {
 		this.cast = cast;
 	}
+	
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(cast, desc, filmId, lang, langId, length, rating, relYear, rentDur, rentRate, repCost,
-				specFeat, title);
+				specFeat, title, categoryId);
 	}
 
 	@Override
@@ -165,7 +184,7 @@ public class Film {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Film Title: ").append(title).append("\n").append("Description: ").append(desc).append("\n").append("Year Released: ").append(relYear)
-				.append("\n").append("Language: ").append(langId).append("\n").append("Rating: ").append(rating).append("\n").append("Cast: \n");
+				.append("\n").append("Language: ").append(langId).append("\n").append("Rating: ").append(rating).append("\n").append(category).append(categoryId).append("Cast: \n");
 		for (Actor actor : cast) {
 			builder.append("\n").append(actor.getFirstName()).append(" ").append(actor.getLastName()).append("\n");
 			

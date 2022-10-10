@@ -43,19 +43,28 @@
 							<td>${film.desc}</td>
 							<td>${film.relYear}</td>
 							<td>${film.rating}</td>
-							<td>${film.langId}</td>
+							<td>${film.lang}</td>
+							
+							
 							<td><form action="updateFilmDetails.do" action="POST">
 									<input type="hidden" name="filmId" value="${film.id}" />
 									<input type="submit" value="Update Film"
 										class="btn btn-primary" />
 								</form></td>
-							<td><a href="RemoveForm.html">Remove Film</a></td>
+							<td><form action="removeFilmDetails.do" action="POST">
+									<input type="hidden" name="filmId" value="${film.id}" />
+									<input type="submit" value="Delete Film"
+										class="btn btn-primary" />
+								</form></td></td>
 						</tr>
 						<tr>
 						<th scope="row"> Cast </th>
 						<td colspan="6"> ${film.cast }</td>
 						</tr>
-						
+						<tr>
+						<th  scope="row">Category</th>
+						<td colspan="6"> ${film.category }</td>
+						</tr>
 					</tbody>
 				</table>
 			</c:when>
