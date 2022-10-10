@@ -18,3 +18,8 @@ get those keys and use them in our code, helped our understanding of DAO.
 
 Using Gradle was a little different than Maven but helped our understanding of
 the moving parts and connections from our DB to our web page.
+
+
+## Technologies Used
+
+STS, Java, Gradle, HTML, JSP, and Git
