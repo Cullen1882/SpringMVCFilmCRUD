@@ -3,6 +3,7 @@
 
 
 ## Description
+
 MVC FILM SITE is a functioning application that allows a user to access a film database through a web
 interface. The user can search for films already in the database by the film's id or a keyword. The user
 can also add a film to the database or update and delete film records. The interface prompts the user
