@@ -3,8 +3,11 @@
 
 
 ## Description
-This is a full functioning website for users to find films by film id, keyword or create, update or delete 
-films. 
+MVC FILM SITE is a functioning application that allows a user to access a film database through a web
+interface. The user can search for films already in the database by the film's id or a keyword. The user
+can also add a film to the database or update and delete film records. The interface prompts the user
+to complete the requested task through the use of forms which have text input fields and dropdown option
+menus.
 
 
 ## Lessons Learned
