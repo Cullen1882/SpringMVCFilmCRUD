@@ -31,6 +31,11 @@
 							<th scope="col">Film Release Year</th>
 							<th scope="col">Film Rating</th>
 							<th scope="col">Film Language</th>
+							<th scope="col">Film Rental Duration</th>
+							<th scope="col">Film Rental Rate</th>
+							<th scope="col">Film Length</th>
+							<th scope="col">Film Replacement Cost</th>
+							<th scope="col">Special Features</th>
 							<th scope="col">Update Film</th>
 							<th scope="col">Remove Film</th>
 							
@@ -44,6 +49,11 @@
 							<td>${film.relYear}</td>
 							<td>${film.rating}</td>
 							<td>${film.lang}</td>
+							<td>${film.rentDur}</td>
+							<td>${film.rentRate}</td>
+							<td>${film.length}</td>
+							<td>${film.repCost}</td>
+							<td>${film.specFeat}</td>
 							
 							
 							<td><form action="updateFilmDetails.do" action="POST">
@@ -59,11 +69,11 @@
 						</tr>
 						<tr>
 						<th scope="row"> Cast </th>
-						<td colspan="6"> ${film.cast }</td>
+						<td colspan="11"> ${film.cast }</td>
 						</tr>
 						<tr>
 						<th  scope="row">Category</th>
-						<td colspan="6"> ${film.category }</td>
+						<td colspan="11"> ${film.category }</td>
 						</tr>
 					</tbody>
 				</table>
@@ -72,6 +82,7 @@
 				<p>No Films Found</p>
 			</c:otherwise>
 		</c:choose>
+		<a href="index.html" >Home Page</a>
 	</div>
 </body>
 </html>
